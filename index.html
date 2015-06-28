@@ -14,18 +14,19 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 // ecu places and provinces
-d3.json("data/ecu.json", function(error, country) {
+d3.json("data/gal.json", function(error, country) {
   if (error) return console.error(error);
 
-  console.log(country)
-  var subunits = topojson.feature(country, country.objects.ecu_subunits);
+//  console.log(country)
+  var subunits = topojson.feature(country, country.objects.gal_subunits);
 
-  var projection = d3.geo.albers()
-    .center([5, 0])
-//    .rotate([0, 0])
-//    .parallels([90, 100])
-    .scale(10000)
+  var projection = d3.geo.mercator()
+    .center([-90, -2])
+    .scale(11000)
     .translate([width / 2, height / 2]);
+
+//  check where the islands are being drawn
+//  console.log(projection([-90.55, - 0.67]));
 
   var path = d3.geo.path()
     .projection(projection);
@@ -33,10 +34,6 @@ d3.json("data/ecu.json", function(error, country) {
   svg.append("path")
     .datum(subunits)
     .attr("d", path);
-
-//  svg.append("path")
-//      .datum(topojson.feature(country, country.objects.ecu_subunits))
-//      .attr("d", d3.geo.path().projection(d3.geo.mercator()));
 });
 
 </script>
