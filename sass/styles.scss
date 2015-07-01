@@ -11,20 +11,20 @@ html, body, #map {
   padding: 0;
 }
 
-.stations, .stations svg {
+.stations {
   position: absolute;
-}
 
-.stations svg {
-  width: 60px;
-  height: 20px;
-  padding-right: 100px;
-  font: 10px sans-serif;
+  svg {
+    width: 60px;
+    height: 20px;
+    padding-right: 100px;
+    font: 10px sans-serif;
+    position: absolute;
+    box-sizing: content-box;
+  }
+  circle {
+    fill: brown;
+    stroke: black;
+    stroke-width: 1.5px;
+  }
 }
-
-.stations circle {
-  fill: brown;
-  stroke: black;
-  stroke-width: 1.5px;
-}
-
