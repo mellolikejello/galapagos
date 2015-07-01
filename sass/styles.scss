@@ -4,11 +4,12 @@ body {
 //  background-color : $color !important;
 }
 
-html, body, #map {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+nav.navbar {
+  margin-bottom: 0;
+}
+
+#map {
+  height: 800px;
 }
 
 .stations {
