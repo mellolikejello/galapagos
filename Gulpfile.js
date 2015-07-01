@@ -15,6 +15,7 @@ gulp.task('express', function() {
 var tinylr;
 gulp.task('livereload', function() {
   tinylr = require('tiny-lr')();
+  process.stdout.write('listening on port 8000...\n');
   tinylr.listen(8080);
 });
 

@@ -1,7 +1,6 @@
 # galapagos
 Final project for Galapagos trip
 
-Test on port 8000(log this to console?)
+To run: `gulp`
 
-To run: 
-`gulp` from live-reload directory
+To view in browser: `localhost:8000`
