@@ -6,13 +6,13 @@ function mapExample() {
   // Create the Google Map…
   var map = new google.maps.Map(d3.select("#map").node(), {
     zoom: 8,
-    center: new google.maps.LatLng(37.76487, -122.41948),
+    center: new google.maps.LatLng(-0.6667, -90.5500),
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
-  // Load the station data. When the data comes back, create an overlay.
-  d3.json("stations.json", function(data) {
-    console.log(data);
+  // Load the data. When the data comes back, create an overlay.
+  d3.json("data/gal_places.json", function(data) {
+    var places = data.features;
     var overlay = new google.maps.OverlayView();
 
     // Add the container when the overlay is added to the map.
@@ -27,7 +27,7 @@ function mapExample() {
             padding = 10;
 
         var marker = layer.selectAll("svg")
-            .data(d3.entries(data))
+            .data(d3.entries(places))
             .each(transform) // update existing markers
           .enter().append("svg:svg")
             .each(transform)
@@ -44,12 +44,11 @@ function mapExample() {
             .attr("x", padding + 7)
             .attr("y", padding)
             .attr("dy", ".31em")
-            .text(function(d) { return d.key; });
+            .text(function(d) { return d.value.properties.NAME; });
 
         function transform(d) {
-          console.log('transforming ... ' + d.key);
-//          debugger;
-          d = new google.maps.LatLng(d.value[1], d.value[0]);
+          d = new google.maps.LatLng(d.value.properties.LATITUDE,
+                                     d.value.properties.LONGITUDE);
           d = projection.fromLatLngToDivPixel(d);
           return d3.select(this)
               .style("left", (d.x - padding) + "px")
