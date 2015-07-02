@@ -4,6 +4,14 @@ body {
 //  background-color : $color !important;
 }
 
+#start-banner {
+  height: 90vh;
+
+  .valign-wrapper {
+    height: 100%;
+  }
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
