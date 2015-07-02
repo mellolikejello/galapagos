@@ -1,4 +1,12 @@
 function init() {
+  $('.button-collapse').sideNav();
+  $('.parallax').parallax();
+  $('#get-started-btn').click(function() {
+    console.log('clicked');
+    $('html,body').animate({
+        scrollTop: $("#header").offset().top},
+        'slow');
+  });
   mapExample();
 }
 
