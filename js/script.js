@@ -3,11 +3,15 @@ function init() {
 }
 
 function mapExample() {
+  var GALAPAGOS_LATLNG = {"lat": -0.6667, "lng": -90.5500};
   // Create the Google Map…
   var map = new google.maps.Map(d3.select("#map").node(), {
     zoom: 8,
-    center: new google.maps.LatLng(-0.6667, -90.5500),
-    mapTypeId: google.maps.MapTypeId.TERRAIN
+    center: new google.maps.LatLng(GALAPAGOS_LATLNG.lat, GALAPAGOS_LATLNG.lng),
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    scrollwheel: false,
+    disableDefaultUI: true,
+    draggable: false
   });
 
   // Load the data. When the data comes back, create an overlay.
@@ -59,6 +63,10 @@ function mapExample() {
 
     // Bind our overlay to the map…
     overlay.setMap(map);
+
+    google.maps.event.addDomListener(window, 'resize', function() {
+      map.setCenter(GALAPAGOS_LATLNG);
+    });
   });
 
 }

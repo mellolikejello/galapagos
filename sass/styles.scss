@@ -4,8 +4,9 @@ body {
 //  background-color : $color !important;
 }
 
-nav.navbar {
-  margin-bottom: 0;
+nav ul a,
+nav .brand-logo {
+  color: #444;
 }
 
 #map {
