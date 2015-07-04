@@ -7,6 +7,8 @@ function init() {
         scrollTop: $("#header").offset().top},
         'slow');
   });
+  $('.range-field #timeline-range').pushpin({ top: 100 });
+  $('.drag-target').pushpin({ top: 200, right: 0 });
   mapExample();
 }
 

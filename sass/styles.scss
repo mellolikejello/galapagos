@@ -1,11 +1,18 @@
-$color: purple;
+$primary-color: color("materialize-green") !default;
+$heading-font: 'Raleway', sans-serif;
+$body-font: 'Merriweather', sans-serif;
 
-body {
-//  background-color : $color !important;
+html {
+  font-family: $body-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  font-weight: 700;
 }
 
 #start-banner {
-  height: 95vh;
+  height: 100vh;
 
   .valign-wrapper {
     height: 100%;
@@ -15,6 +22,19 @@ body {
 nav ul a,
 nav .brand-logo {
   color: #444;
+}
+
+.range-field {
+  z-index: 10;
+
+  #timeline-range {
+    width: 50px;
+  }
+}
+
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
 }
 
 #map {
