@@ -1,0 +1,22 @@
+{
+  "itinerary": [ {
+    "date": "May 26",
+    "title": "Flight to Quito",
+    "points": [
+      "Airport to Hotel",
+      "Meet Tour Director & Check Into Hotel",
+      "Dinner",
+      "Hotel Overnight"
+    ]
+    }
+  ],
+  "travel": [ {
+    "day": 1,
+    "start": {"date": "May 26", "latLng": [43.165556, -77.611389] },
+    "end": {"date": "May 27", "latLng": [-0.233333, -78.516667] },
+    "mode": "plane",
+    "distance": "X miles",
+    "duration": "long time"
+    }
+  ]
+}
