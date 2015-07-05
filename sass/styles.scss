@@ -17,6 +17,11 @@ h1, h2, h3, h4, h5, h6 {
   .valign-wrapper {
     height: 100%;
   }
+
+  #get-started-icon i {
+    color: white;
+    font-size: 48px;
+  }
 }
 
 nav ul a,
@@ -57,4 +62,8 @@ input[type=range][orient=vertical] {
     stroke: black;
     stroke-width: 1.5px;
   }
+}
+
+footer.page-footer {
+  margin-top: 0;
 }

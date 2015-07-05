@@ -1,11 +1,17 @@
+function scrollToHeader() {
+  $('html,body').animate({
+        scrollTop: $("#header").offset().top},
+        'slow');
+}
+
 function init() {
   $('.button-collapse').sideNav();
   $('.parallax').parallax();
   $('#get-started-btn').click(function() {
-    console.log('clicked');
-    $('html,body').animate({
-        scrollTop: $("#header").offset().top},
-        'slow');
+    scrollToHeader();
+  });
+  $('#get-started-icon').click(function() {
+    scrollToHeader();
   });
   $('.range-field #timeline-range').pushpin({ top: 100 });
   $('.drag-target').pushpin({ top: 200, right: 0 });
