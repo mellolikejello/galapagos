@@ -1,10 +1,12 @@
+var map;
+
 function scrollToHeader() {
   $('html,body').animate({
         scrollTop: $("#header").offset().top},
         'slow');
 }
 
-function init() {
+function initHTML() {
   $('.button-collapse').sideNav();
   $('.parallax').parallax();
   $('#get-started-btn').click(function() {
@@ -15,14 +17,19 @@ function init() {
   });
   $('.range-field #timeline-range').pushpin({ top: 100 });
   $('.drag-target').pushpin({ top: 200, right: 0 });
+}
+
+function init() {
+  initHTML();
   mapExample();
+  addMapTravelPoints();
 }
 
 function mapExample() {
   var GALAPAGOS_LATLNG = {"lat": -0.6667, "lng": -90.5500};
   // Create the Google Map…
-  var map = new google.maps.Map(d3.select("#map").node(), {
-    zoom: 8,
+  map = new google.maps.Map(d3.select("#map").node(), {
+    zoom: 3,
     center: new google.maps.LatLng(GALAPAGOS_LATLNG.lat, GALAPAGOS_LATLNG.lng),
     mapTypeId: google.maps.MapTypeId.TERRAIN,
     scrollwheel: false,
@@ -85,6 +92,30 @@ function mapExample() {
     });
   });
 
+}
+
+function addMapTravelPoints() {
+  d3.json("data/trip.json", function(data) {
+    var travelPoints = data.travel;
+    var coordinates = [];
+    for(var i in travelPoints) {
+      var startPoint = new google.maps.LatLng(travelPoints[i].start.latLng[0],
+                                             travelPoints[i].start.latLng[1]);
+      var endPoint = new google.maps.LatLng(travelPoints[i].end.latLng[0],
+                                             travelPoints[i].end.latLng[1]);
+      coordinates.push(startPoint, endPoint);
+    }
+    var leg = new google.maps.Polygon( {
+      paths: coordinates,
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2
+//      fillColor: '#FF0000',
+//      fillOpacity: 0.35
+    });
+
+    leg.setMap(map);
+  });
 }
 
 window.onload = init;
