@@ -29,20 +29,34 @@ nav .brand-logo {
   color: #444;
 }
 
-.range-field {
-  z-index: 10;
+//.range-field {
+//  z-index: 10;
+//
+//  #timeline-range {
+//    width: 50px;
+//  }
+//}
 
-  #timeline-range {
-    width: 50px;
+//input[type=range][orient=vertical] {
+//    writing-mode: bt-lr; /* IE */
+//    -webkit-appearance: slider-vertical; /* WebKit */
+//}
+
+#day-list {
+  .card {
+    height: 275px;
+    width: 200px;
+    float: left;
+    margin-left: 15px;
+  }
+  .card-title {
+    line-height: inherit;
+    font-size: 18px;
   }
 }
 
-input[type=range][orient=vertical] {
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
-}
-
 #map {
+  clear: left;
   height: 800px;
 }
 
