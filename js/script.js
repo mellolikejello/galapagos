@@ -109,10 +109,14 @@ function appendDayCards() {
     for(var i in days) {
       var cur_data = days[i];
       var cur_element = card_element.cloneNode(true);
+      var curDayNum = Number(i)+ 1;
       // change to title
-      cur_element.querySelector(".day-date").textContent = cur_data.date;
+      cur_element.querySelector(".day-date").textContent = "Day " + curDayNum;
       //sub title
       cur_element.querySelector(".card-title").textContent = cur_data.title;
+      cur_element.querySelectorAll(".date-title").textContent = cur_data.date;
+      // change this to textConect later ;) bad moves
+      cur_element.querySelector(".card-desc").innerHTML = cur_data.description;
       parent.appendChild(cur_element);
     }
   }) ;

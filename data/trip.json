@@ -1,45 +1,51 @@
 {
   "itinerary": [ {
-    "date": "May 26",
-    "title": "Flight to Quito",
+    "date": "May 26, 2015",
+    "title": "Travelling to Quito",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Flight delays, gate changes, anticipation: day 1 was a day of travel. With the recent eruption of Volcan Wolf, I was extra excited to see what the Galapagos Islands would hold.",
+    "thumb": "link"
     }, {
-    "date": "May 27",
+    "date": "May 27, 2015",
     "title": "Quito Landmarks",
     "points": [
-    ]
+    ],
+    "description": "It was such a relief to finally arrive in the capital city of Ecuador. The day was spent exploring the city's sites: Intañan Museum, markets, San Francisco church, and more.",
+    "thumb": "link"
     }, {
-    "date": "May 28",
+    "date": "May 28, 2015",
     "title": "Quito - Galapagos",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "For my birthday, I got travel to the Galapagos Islands for the first time! The day started early in the morning with a flight to Guayapil and then Baltra. A speedboat then took the group to San Cristobal, where we would be staying.",
+    "thumb": "link"
     }, {
-    "date": "May 29",
+    "date": "May 29, 2015",
     "title": "San Cristobal",
     "points": [
-      "Airport to Hotel",
-      "Meet Tour Director & Check Into Hotel",
-      "Dinner",
-      "Hotel Overnight"
-    ]
+    ],
+    "description": "Progresso Tower, Cerro Colorado Breeding Station, El Junco, snorkeling",
+    "thumb": "link"
     }, {
-    "date": "May 30",
+    "date": "May 30, 2015",
     "title": "San Cristobal - Santa Cruz",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Tortoises",
+    "thumb": "link"
     }, {
     "date": "May 31",
     "title": "Santa Cruz",
