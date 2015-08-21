@@ -113,10 +113,15 @@ function appendDayCards() {
       // change to title
       cur_element.querySelector(".day-date").textContent = "Day " + curDayNum;
       //sub title
-      cur_element.querySelector(".card-title").textContent = cur_data.title;
-      cur_element.querySelectorAll(".date-title").textContent = cur_data.date;
+      cur_element.querySelector(".day-title").textContent = cur_data.title;
+      cur_element.querySelector(".date-title").textContent = cur_data.date;
       // change this to textConect later ;) bad moves
       cur_element.querySelector(".card-desc").innerHTML = cur_data.description;
+      if(cur_data.thumb != 'link') {
+        cur_element.querySelector(".day-thumb").src = cur_data.thumb;
+      } else {
+        cur_element.querySelector(".day-thumb").src = "http://i.imgur.com/zVPCJUb.jpg";
+      }
       parent.appendChild(cur_element);
     }
   }) ;

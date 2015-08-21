@@ -15,8 +15,8 @@
     "title": "Quito Landmarks",
     "points": [
     ],
-    "description": "It was such a relief to finally arrive in the capital city of Ecuador. The day was spent exploring the city's sites: Intañan Museum, markets, San Francisco church, and more.",
-    "thumb": "link"
+    "description": "It was such a relief to finally arrive in the capital city of Ecuador. The day was spent exploring the city's sites: Intañan Museum, markets, San Francisco church, and more. Amazing view of city (El Panecillo) with ",
+    "thumb": "http://i.imgur.com/ZQDAB6e.jpg"
     }, {
     "date": "May 28, 2015",
     "title": "Quito - Galapagos",
@@ -27,14 +27,14 @@
       "Hotel Overnight"
     ],
     "description": "For my birthday, I got travel to the Galapagos Islands for the first time! The day started early in the morning with a flight to Guayapil and then Baltra. A speedboat then took the group to San Cristobal, where we would be staying.",
-    "thumb": "link"
+    "thumb": "http://i.imgur.com/yi1Oewi.jpg"
     }, {
     "date": "May 29, 2015",
     "title": "San Cristobal",
     "points": [
     ],
-    "description": "Progresso Tower, Cerro Colorado Breeding Station, El Junco, snorkeling",
-    "thumb": "link"
+    "description": "Progresso Tower, Galapaguera Cerro Colorado Breeding Station, El Junco, snorkeling",
+    "thumb": "http://i.imgur.com/zVPCJUb.jpg"
     }, {
     "date": "May 30, 2015",
     "title": "San Cristobal - Santa Cruz",
@@ -44,86 +44,102 @@
       "Dinner",
       "Hotel Overnight"
     ],
-    "description": "Tortoises",
-    "thumb": "link"
+    "description": "Wallowing tortoises, lava tunnel, Los Gemelos",
+    "thumb": "http://i.imgur.com/LQqc6Am.jpg"
     }, {
-    "date": "May 31",
-    "title": "Santa Cruz",
+    "date": "May 31, 2015",
+    "title": "Santa Fe",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Lined with basking sea lions, the white sand shoreline of Santa Fe was the destination for day 6. It was a day trip, as there are no places to stay on the island. There were numerous pale, yellow iguanas along the trail around the island. Snorkeling was also on the itinerary. I got to see pufferfish, sea lions, and many other colorful fish.",
+    "thumb": "http://i.imgur.com/JneV0sI.jpg"
     }, {
-    "date": "June 1",
-    "title": "Santa Cruz",
+    "date": "June 1, 2015",
+    "title": "North Seymour",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "North Seymour was booming with life. There were land iguanas every few feet, frigate birds feeding and mating, and blue-footed boobies nesting.",
+    "thumb": "http://i.imgur.com/OygVU3X.jpg"
     }, {
-    "date": "June 2",
+    "date": "June 2, 2015",
     "title": "Santa Cruz - Isabela",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "We visited the Charles Darwin Station before shipping out to the final island of the trip, Isabela. When arriving to Isabela, it was clear that it was a less inhabited island, compared to the previous ones. There were still hotels, restaurants, and grocery stores, but being the farthest inhabited island from mainland Ecuador, the residents of Isabela need to be more conscious of supplies.",
+    "thumb": "http://i.imgur.com/aULJZxi.jpg"
     }, {
-    "date": "June 3",
+    "date": "June 3, 2015",
     "title": "Isabela",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Day 9 was a big hiking day. We hiked Sierra Negra and Volcan Chico. The hike took us through rainy highlands to dry, hot volcanic areas and back again.",
+    "thumb": "http://i.imgur.com/53mNE4e.jpg"
     }, {
-    "date": "June 4",
+    "date": "June 4, 2015",
     "title": "Isabela",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Playa del amor with young marine iguanas, mangroves, snorkeling with tons of marine iguanas, green sea turtles",
+    "thumb": "http://i.imgur.com/TJp84fi.jpg"
     }, {
-    "date": "June 5",
+    "date": "June 5, 2015",
     "title": "Isabela",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Each snorkelling trip was better than the last. On this day, I saw sea horses, sea turtles, sting rays, and sharks. SHARKS! Saw flamingoes later on in the day. It was an amazing last day in the Galapagos.",
+    "thumb": "http://i.imgur.com/FUV79vY.jpg"
     }, {
-    "date": "June 6",
+    "date": "June 6, 2015",
     "title": "Isabela - Quito",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Can't believe we're heading back already. Hopefully there isn't an eruption in Quito.",
+    "thumb": "link"
     }, {
-    "date": "June 7",
+    "date": "June 7, 2015",
     "title": "Quito - ROC",
     "points": [
       "Airport to Hotel",
       "Meet Tour Director & Check Into Hotel",
       "Dinner",
       "Hotel Overnight"
-    ]
+    ],
+    "description": "Flying back to the US",
+    "thumb": "link"
     }
   ],
   "travel": [ {
     "day": 1,
-    "start": {"date": "May 26", "latLng": [43.165556, -77.611389] },
-    "end": {"date": "May 27", "latLng": [-0.233333, -78.516667] },
+    "start": {"date": "May 26, 2015", "latLng": [43.165556, -77.611389] },
+    "end": {"date": "May 27, 2015", "latLng": [-0.233333, -78.516667] },
     "mode": "plane",
     "distance": "X miles",
     "duration": "long time"
