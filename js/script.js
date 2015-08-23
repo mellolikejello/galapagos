@@ -1,4 +1,6 @@
-var map;
+var mapFromRoc, mapGalapagos;
+var GALAPAGOS_LATLNG = {"lat": -0.6667, "lng": -90.5500};
+var ROCHESTER_LATLNG = {"lat": 43.161030, "lng": -77.610924};
 
 function scrollToHeader() {
   $('html,body').animate({
@@ -25,15 +27,37 @@ function initHTML() {
 
 function init() {
   initHTML();
-  mapExample();
+  addMapFromRoc();
+  addMapGalapagos();
   addMapTravelPoints();
-  appendDayCards();
+  // appendDayCards();
 }
 
-function mapExample() {
-  var GALAPAGOS_LATLNG = {"lat": -0.6667, "lng": -90.5500};
+function addMapFromRoc() {
   // Create the Google Map…
-  map = new google.maps.Map(d3.select("#map").node(), {
+  mapFromRoc = new google.maps.Map(d3.select("#map-from-roc").node(), {
+    zoom: 5,
+    center: new google.maps.LatLng(ROCHESTER_LATLNG.lat, ROCHESTER_LATLNG.lng),
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    // scrollwheel: false,
+    // disableDefaultUI: true,
+    draggable: false
+  });
+
+  google.maps.event.addDomListener(window, 'click', function() {
+    // mapFromRoc.setZoom(10); // Back to default zoom
+    mapFromRoc.panTo(GALAPAGOS_LATLNG); // Pan map to that position
+    setTimeout("mapFromRoc.setZoom(8)",1000); // Zoom in after 1 sec
+  });
+
+  google.maps.event.addDomListener(window, 'resize', function() {
+    mapFromRoc.setCenter(ROCHESTER_LATLNG);
+  });
+}
+
+function addMapGalapagos() {
+  // Create the Google Map…
+  mapGalapagos = new google.maps.Map(d3.select("#map-galapagos").node(), {
     zoom: 8,
     center: new google.maps.LatLng(GALAPAGOS_LATLNG.lat, GALAPAGOS_LATLNG.lng),
     mapTypeId: google.maps.MapTypeId.TERRAIN,
@@ -93,7 +117,7 @@ function mapExample() {
     // overlay.setMap(map);
 
   google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(GALAPAGOS_LATLNG);
+    mapGalapagos.setCenter(GALAPAGOS_LATLNG);
   });
 }
 
