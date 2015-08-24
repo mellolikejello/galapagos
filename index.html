@@ -49,7 +49,7 @@
 -->
     </div>
   </div>
-  <nav id="header" class="white" role="navigation">
+<!--   <nav id="header" class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Make this sticky?</a>
       <ul class="right hide-on-med-and-down">
@@ -61,16 +61,79 @@
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-  </nav>
+  </nav> -->
+
+  <div id="map-from-roc" class="s12 map z-depth-2"></div>
+
+  <div id="day-wrap">
+    <div id="day-list" class="row">
+      <div class="card-wrap day-card col s12 m4">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator day-thumb">
+            <div class="valign-wrapper">
+              <img class="activator loading valign" src="images/loading.gif" width="32" height="32">
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="day-date">Date</p>
+            <span class="card-title activator grey-text text-darken-4"><span class="day-title">Card Title</span><i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><span class="date-title">Card Title</span><i class="material-icons right">close</i></span>
+            <p class="card-desc">Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <!--
   <p class="range-field">
-    <input type="range" id="timeline-range" min="1" max="14" value="1" orient="vertical"/>
+    <input type="range" id="timeline-range" min="1" max="14" value="1"/>
   </p>
 -->
-  <div id="map" class="s12"></div>
+  <div id="map-galapagos" class="s12 map"></div>
+<!--
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/1">
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2">
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3">
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4">
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>-->
+
 
   <footer class="page-footer green">
-    <div class="container">
+      <div class="container center">
+        <a class="brown-text text-lighten-3" href="#start-banner">Back to the Top </a>
+      </div>
+<!--     <div class="container">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
@@ -97,16 +160,15 @@
           </ul>
         </div>
       </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-      </div>
-    </div>
+    </div> -->
+<!--     <div class="footer-copyright">
+      
+    </div> -->
   </footer>
 
+
   <!--  Scripts-->
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry"></script>
   <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.29.1"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>

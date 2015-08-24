@@ -29,21 +29,57 @@ nav .brand-logo {
   color: #444;
 }
 
-.range-field {
-  z-index: 10;
+//.range-field {
+//  z-index: 10;
+//
+//  #timeline-range {
+//    width: 50px;
+//  }
+//}
 
-  #timeline-range {
-    width: 50px;
+//input[type=range][orient=vertical] {
+//    writing-mode: bt-lr; /* IE */
+//    -webkit-appearance: slider-vertical; /* WebKit */
+//}
+
+#day-list {
+/*    display: flex;
+  flex-flow: row wrap;
+  width: 90%;*/
+  padding: 0 0.5rem;
+  .card-wrap {
+    padding: 0px 0.5rem;
+  }
+  .card {
+/*//    height: 500px;*/
+    //width: 400px;
+    /*width: 30%;*/
+    float: left;
+    /*margin: 8px;*/
+/*    padding-left: 0;
+    padding-right: 0;
+    margin: 0px 0.75rem;*/
+  }
+  .card-title {
+    line-height: inherit;
+    font-size: 18px;
   }
 }
 
-input[type=range][orient=vertical] {
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
+.loading {
+  height: 32px;
+  width: 32px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#map {
+.map {
+  clear: left;
   height: 800px;
+}
+
+#map-from-roc {
+  margin: 15px 0;
 }
 
 .stations {
