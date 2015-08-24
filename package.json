@@ -20,5 +20,11 @@
     "gulp-rename": "^1.2.0",
     "gulp-ruby-sass": "^0.5.0",
     "tiny-lr": "0.0.7"
+  },
+  "dependencies": {
+    "compression": "^1.5.2",
+    "express": "^4.13.3",
+    "path": "^0.11.14",
+    "url": "^0.10.3"
   }
 }
