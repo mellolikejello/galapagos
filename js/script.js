@@ -166,7 +166,7 @@ function addMapToGalap() {
 function zoomToGalapagos() {
   transitionComplete = true;
   mapToGalap.setCenter(new google.maps.LatLng(GALAPAGOS_LATLNG.lat, GALAPAGOS_LATLNG.lng));
-  smoothZoom(mapToGalap, 7, 6);
+  smoothZoom(mapToGalap, 8, 6);
 }
 
 function addMapGalapagos() {
