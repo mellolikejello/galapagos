@@ -1,10 +1,13 @@
 var mapFromRoc, mapGalapagos;
+var introComplete = true;
+var fromRocMarkers = [];
 var GALAPAGOS_LATLNG = {"lat": -0.6667, "lng": -90.5500};
 var ROCHESTER_LATLNG = {"lat": 43.161030, "lng": -77.610924};
+var QUITO_LATLNG = {"lat": -0.180653, "lng": -78.467834};
 
 function scrollToHeader() {
   $('html,body').animate({
-        scrollTop: $("#header").offset().top},
+        scrollTop: $("#map-from-roc").offset().top},
         'slow');
 }
 
@@ -29,30 +32,103 @@ function init() {
   initHTML();
   addMapFromRoc();
   addMapGalapagos();
-  addMapTravelPoints();
-  // appendDayCards();
+  // addMapTravelPoints();
+  appendDayCards();
 }
 
 function addMapFromRoc() {
   // Create the Google Map…
   mapFromRoc = new google.maps.Map(d3.select("#map-from-roc").node(), {
-    zoom: 5,
+    zoom: 3,
     center: new google.maps.LatLng(ROCHESTER_LATLNG.lat, ROCHESTER_LATLNG.lng),
     mapTypeId: google.maps.MapTypeId.TERRAIN,
-    // scrollwheel: false,
-    // disableDefaultUI: true,
+    scrollwheel: false,
+    disableDefaultUI: true,
     draggable: false
   });
 
-  google.maps.event.addDomListener(window, 'click', function() {
-    // mapFromRoc.setZoom(10); // Back to default zoom
-    mapFromRoc.panTo(GALAPAGOS_LATLNG); // Pan map to that position
-    setTimeout("mapFromRoc.setZoom(8)",1000); // Zoom in after 1 sec
+  var rocMarker = new google.maps.Marker({
+    position: ROCHESTER_LATLNG,
+    map: mapFromRoc,
+    title: 'Rochester, NY'
   });
 
-  google.maps.event.addDomListener(window, 'resize', function() {
-    mapFromRoc.setCenter(ROCHESTER_LATLNG);
+  var quitoMarker = new google.maps.Marker({
+    position: QUITO_LATLNG,
+    map: mapFromRoc,
+    title: 'Quito, Ecuador'
   });
+
+  var galapagosMarker = new google.maps.Marker({
+    position: GALAPAGOS_LATLNG,
+    map: mapFromRoc,
+    title: 'Galapagos Islands'
+  });
+
+  var fromRocMarkers = [rocMarker, quitoMarker, galapagosMarker];
+
+  // google.maps.event.addDomListener(window, 'click', function() {
+  //   // mapFromRoc.setZoom(10); // Back to default zoom
+  //   mapFromRoc.panTo(GALAPAGOS_LATLNG); // Pan map to that position
+  //   setTimeout("mapFromRoc.setZoom(8)",1000); // Zoom in after 1 sec
+  // });
+
+  initScrollFire();
+
+  google.maps.event.addDomListener(window, 'resize', function() {
+    // TOD0: fix error message
+    mapFromRoc.setCenter(new google.maps.LatLng(ROCHESTER_LATLNG.lat, ROCHESTER_LATLNG.lng));
+  });
+}
+
+function zoomToRoc() {
+  mapFromRoc.setCenter(new google.maps.LatLng(ROCHESTER_LATLNG.lat, ROCHESTER_LATLNG.lng));
+  mapFromRoc.setZoom(3);
+}
+
+function initScrollFire() {
+  if(introComplete) {
+    var options = [
+    {selector: '#map-from-roc', offset: 0, callback: 'Materialize.toast("Early in the morning on May 26,", 2500 )' },
+    {selector: '#map-from-roc', offset: 400, callback: 'Materialize.toast("I met with my class at the Rochester Airport.", 2500 )' },
+    {selector: '#map-from-roc', offset: 800, callback: 'Materialize.toast("It was just the beginning of a day of travel.", 2500 )' },
+    {selector: '#map-from-roc', offset: 1000, callback: 'Materialize.toast("After a stop in Atlanta, several gate changes and delays,", 2500 )' },
+    {selector: '#map-from-roc', offset: 1300, callback: 'Materialize.toast("we finally landed in Quito,", 2500 )' },
+    {selector: '#map-from-roc', offset: 1400, callback: 'Materialize.toast("the capital of Ecuador!", 2500 )' },
+    {selector: '#map-from-roc', offset: 1400, callback: 'zoomToEcuador()' }
+    // {selector: '#staggered-test', offset: 400, callback: 'Materialize.showStaggeredList("#staggered-test")' },
+    // {selector: '#image-test', offset: 500, callback: 'Materialize.fadeInImage("#image-test")' }
+    ];
+    Materialize.scrollFire(options);
+    introComplete = false;
+  }
+
+}
+
+function smoothZoom (map, max, cnt) {
+  if (cnt >= max) {
+          return;
+      }
+  else {
+      y = google.maps.event.addListener(map, 'zoom_changed', function(event){
+          google.maps.event.removeListener(y);
+          self.smoothZoom(map, max, cnt + 1);
+      });
+      setTimeout(function(){map.setZoom(cnt)}, 120);
+  }
+}
+
+function zoomToEcuador() {
+  introComplete = true;
+  mapFromRoc.setCenter(new google.maps.LatLng(QUITO_LATLNG.lat, QUITO_LATLNG.lng));
+  removeMarkers();
+  smoothZoom(mapFromRoc, 7, 3);
+}
+
+function removeMarkers() {
+  for(var i in fromRocMarkers) {
+    fromRocMarkers[i].setMap(null);
+  }
 }
 
 function addMapGalapagos() {
@@ -129,22 +205,26 @@ function appendDayCards() {
     var days = data.itinerary;
 
     for(var i in days) {
-      var cur_data = days[i];
-      var cur_element = card_element.cloneNode(true);
-      var curDayNum = Number(i)+ 1;
-      // change to title
-      cur_element.querySelector(".day-date").textContent = "Day " + curDayNum;
-      //sub title
-      cur_element.querySelector(".day-title").textContent = cur_data.title;
-      cur_element.querySelector(".date-title").textContent = cur_data.date;
-      // change this to textConect later ;) bad moves
-      cur_element.querySelector(".card-desc").innerHTML = cur_data.description;
-      if(cur_data.thumb != 'link') {
-        cur_element.querySelector(".day-thumb").src = cur_data.thumb;
-      } else {
-        cur_element.querySelector(".day-thumb").src = "http://i.imgur.com/zVPCJUb.jpg";
+      // skip day one
+      if(i != 0) {
+        console.log('at ' + i);
+        var cur_data = days[i];
+        var cur_element = card_element.cloneNode(true);
+        var curDayNum = Number(i)+ 1;
+        // change to title
+        cur_element.querySelector(".day-date").textContent = "Day " + curDayNum;
+        //sub title
+        cur_element.querySelector(".day-title").textContent = cur_data.title;
+        cur_element.querySelector(".date-title").textContent = cur_data.date;
+        // change this to textConect later ;) bad moves
+        cur_element.querySelector(".card-desc").innerHTML = cur_data.description;
+        if(cur_data.thumb != 'link') {
+          cur_element.querySelector(".day-thumb").src = cur_data.thumb;
+        } else {
+          cur_element.querySelector(".day-thumb").src = "http://i.imgur.com/zVPCJUb.jpg";
+        }
+        parent.appendChild(cur_element);
       }
-      parent.appendChild(cur_element);
     }
   }) ;
 }
@@ -281,7 +361,15 @@ function addMapTravelPoints() {
 
 /* ---- End StackOverflow ---- */
 
+function scrollHandler(e) {
+  if(e.pageY == 0) {
+    initScrollFire();
+    zoomToRoc();
+  }
+}
+
 window.onload = init;
+window.onscroll = scrollHandler;
 
 
 
