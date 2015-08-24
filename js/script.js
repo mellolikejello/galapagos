@@ -207,7 +207,6 @@ function appendDayCards() {
     for(var i in days) {
       // skip day one
       if(i != 0) {
-        console.log('at ' + i);
         var cur_data = days[i];
         var cur_element = card_element.cloneNode(true);
         var curDayNum = Number(i)+ 1;
