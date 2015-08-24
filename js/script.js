@@ -1,5 +1,6 @@
-var mapFromRoc, mapGalapagos;
+var mapFromRoc, mapToGalap, mapGalapagos;
 var introComplete = true;
+var transitionComplete = true;
 var fromRocMarkers = [];
 var GALAPAGOS_LATLNG = {"lat": -0.6667, "lng": -90.5500};
 var ROCHESTER_LATLNG = {"lat": 43.161030, "lng": -77.610924};
@@ -31,6 +32,7 @@ function initHTML() {
 function init() {
   initHTML();
   addMapFromRoc();
+  addMapToGalap();
   addMapGalapagos();
   // addMapTravelPoints();
   appendDayCards();
@@ -73,7 +75,7 @@ function addMapFromRoc() {
   //   setTimeout("mapFromRoc.setZoom(8)",1000); // Zoom in after 1 sec
   // });
 
-  initScrollFire();
+  initIntroScrollFire();
 
   google.maps.event.addDomListener(window, 'resize', function() {
     // TOD0: fix error message
@@ -86,7 +88,7 @@ function zoomToRoc() {
   mapFromRoc.setZoom(3);
 }
 
-function initScrollFire() {
+function initIntroScrollFire() {
   if(introComplete) {
     var options = [
     {selector: '#map-from-roc', offset: 0, callback: 'Materialize.toast("Early in the morning on May 26,", 2500 )' },
@@ -95,12 +97,26 @@ function initScrollFire() {
     {selector: '#map-from-roc', offset: 1000, callback: 'Materialize.toast("After a stop in Atlanta, several gate changes and delays,", 2500 )' },
     {selector: '#map-from-roc', offset: 1300, callback: 'Materialize.toast("we finally landed in Quito,", 2500 )' },
     {selector: '#map-from-roc', offset: 1400, callback: 'Materialize.toast("the capital of Ecuador!", 2500 )' },
-    {selector: '#map-from-roc', offset: 1400, callback: 'zoomToEcuador()' }
+    {selector: '#map-from-roc', offset: 1500, callback: 'zoomToEcuador()' }
     // {selector: '#staggered-test', offset: 400, callback: 'Materialize.showStaggeredList("#staggered-test")' },
     // {selector: '#image-test', offset: 500, callback: 'Materialize.fadeInImage("#image-test")' }
     ];
     Materialize.scrollFire(options);
     introComplete = false;
+  }
+
+}
+
+function initTranScrollFire() {
+  if(transitionComplete) {
+    var options = [
+    {selector: '#map-to-galap', offset: 2000, callback: 'Materialize.toast("As soon as we started getting used to the altitude in Quito,", 2500 )' },
+    {selector: '#map-to-galap', offset: 2400, callback: 'Materialize.toast("we were flying off the Galapagos Islands,", 2500 )' },
+    {selector: '#map-to-galap', offset: 2700, callback: 'Materialize.toast("where the greatest adventure awaited.", 2500 )' },
+    {selector: '#map-to-galap', offset: 2800, callback: 'zoomToGalapagos()' }
+    ];
+    Materialize.scrollFire(options);
+    transitionComplete = false;
   }
 
 }
@@ -129,6 +145,28 @@ function removeMarkers() {
   for(var i in fromRocMarkers) {
     fromRocMarkers[i].setMap(null);
   }
+}
+
+function addMapToGalap() {
+  // Create the Google Map…
+  mapToGalap = new google.maps.Map(d3.select("#map-to-galap").node(), {
+    zoom: 6,
+    center: new google.maps.LatLng(QUITO_LATLNG.lat, QUITO_LATLNG.lng),
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    scrollwheel: false,
+    disableDefaultUI: true,
+    draggable: false
+  });
+
+  google.maps.event.addDomListener(window, 'resize', function() {
+    mapFromRoc.setCenter(new google.maps.LatLng(QUITO_LATLNG.lat, QUITO_LATLNG.lng));
+  });
+}
+
+function zoomToGalapagos() {
+  transitionComplete = true;
+  mapToGalap.setCenter(new google.maps.LatLng(GALAPAGOS_LATLNG.lat, GALAPAGOS_LATLNG.lng));
+  smoothZoom(mapToGalap, 7, 6);
 }
 
 function addMapGalapagos() {
@@ -362,8 +400,11 @@ function addMapTravelPoints() {
 
 function scrollHandler(e) {
   if(e.pageY == 0) {
-    initScrollFire();
+    initIntroScrollFire();
+    initTranScrollFire();
     zoomToRoc();
+    mapToGalap.setCenter(new google.maps.LatLng(QUITO_LATLNG.lat, QUITO_LATLNG.lng));
+    mapToGalap.setZoom(6);
   }
 }
 
