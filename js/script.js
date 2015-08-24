@@ -198,7 +198,7 @@ function addMapGalapagos() {
 }
 
 function appendDayCards() {
-  var card_element = document.querySelector(".day-card");
+  var card_element = document.querySelector(".day-card-main");
   var parent = document.querySelector("#day-list");
   parent.removeChild(card_element);
   d3.json("data/trip.json", function(data) {
@@ -206,7 +206,7 @@ function appendDayCards() {
 
     for(var i in days) {
       // skip day one
-      if(i != 0) {
+      if(i != 0 && i != 1) {
         var cur_data = days[i];
         var cur_element = card_element.cloneNode(true);
         var curDayNum = Number(i)+ 1;
