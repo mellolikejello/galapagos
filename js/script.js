@@ -76,6 +76,7 @@ function addMapFromRoc() {
   // });
 
   initIntroScrollFire();
+  initTranScrollFire();
 
   google.maps.event.addDomListener(window, 'resize', function() {
     // TOD0: fix error message
@@ -92,12 +93,12 @@ function initIntroScrollFire() {
   if(introComplete) {
     var options = [
     {selector: '#map-from-roc', offset: 0, callback: 'Materialize.toast("Early in the morning on May 26,", 2500 )' },
-    {selector: '#map-from-roc', offset: 400, callback: 'Materialize.toast("I met with my class at the Rochester Airport.", 2500 )' },
-    {selector: '#map-from-roc', offset: 800, callback: 'Materialize.toast("It was just the beginning of a day of travel.", 2500 )' },
-    {selector: '#map-from-roc', offset: 1000, callback: 'Materialize.toast("After a stop in Atlanta, several gate changes and delays,", 2500 )' },
-    {selector: '#map-from-roc', offset: 1300, callback: 'Materialize.toast("we finally landed in Quito,", 2500 )' },
-    {selector: '#map-from-roc', offset: 1400, callback: 'Materialize.toast("the capital of Ecuador!", 2500 )' },
-    {selector: '#map-from-roc', offset: 1500, callback: 'zoomToEcuador()' }
+    {selector: '#map-from-roc', offset: 100, callback: 'Materialize.toast("I met with my class at the Rochester Airport.", 2500 )' },
+    {selector: '#map-from-roc', offset: 300, callback: 'Materialize.toast("It was just the beginning of a day of travel.", 2500 )' },
+    {selector: '#map-from-roc', offset: 500, callback: 'Materialize.toast("After a stop in Atlanta, several gate changes and delays,", 2500 )' },
+    {selector: '#map-from-roc', offset: 700, callback: 'Materialize.toast("we finally landed in Quito,", 2500 )' },
+    {selector: '#map-from-roc', offset: 750, callback: 'Materialize.toast("the capital of Ecuador!", 2500 )' },
+    {selector: '#map-from-roc', offset: 700, callback: 'zoomToEcuador()' }
     // {selector: '#staggered-test', offset: 400, callback: 'Materialize.showStaggeredList("#staggered-test")' },
     // {selector: '#image-test', offset: 500, callback: 'Materialize.fadeInImage("#image-test")' }
     ];
@@ -110,10 +111,10 @@ function initIntroScrollFire() {
 function initTranScrollFire() {
   if(transitionComplete) {
     var options = [
-    {selector: '#map-to-galap', offset: 2000, callback: 'Materialize.toast("As soon as we started getting used to the altitude in Quito,", 2500 )' },
-    {selector: '#map-to-galap', offset: 2400, callback: 'Materialize.toast("we were flying off the Galapagos Islands,", 2500 )' },
-    {selector: '#map-to-galap', offset: 2700, callback: 'Materialize.toast("where the greatest adventure awaited.", 2500 )' },
-    {selector: '#map-to-galap', offset: 2800, callback: 'zoomToGalapagos()' }
+    {selector: '#map-to-galap', offset: 100, callback: 'Materialize.toast("As soon as we started getting used to the altitude in Quito,", 2500 )' },
+    {selector: '#map-to-galap', offset: 300, callback: 'Materialize.toast("we were flying off the Galapagos Islands,", 2500 )' },
+    {selector: '#map-to-galap', offset: 500, callback: 'Materialize.toast("where the greatest adventure awaited.", 2500 )' },
+    {selector: '#map-to-galap', offset: 450, callback: 'zoomToGalapagos()' }
     ];
     Materialize.scrollFire(options);
     transitionComplete = false;
